@@ -11,6 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//public -- anyone can access this.
 app.use(express.static('public'));
 
 app.get('/', (req, res) =>
