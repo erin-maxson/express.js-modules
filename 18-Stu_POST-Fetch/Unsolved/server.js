@@ -47,9 +47,11 @@ app.post('/api/reviews', (req, res) => {
   console.info(`${req.method} request received to add a review`);
 
   // TODO: Add a comment describing the functionality of following line of code:
+  // making the product, review, and username required
   const { product, review, username } = req.body;
 
   // TODO: Add a comment describing why we would check to see if the following properties exist before entering the code block
+  // checking to see if these items exist before they are entered into the actual review on the website -- make sure all the data is there in order to trigger the data to be written
   if (product && review && username) {
     // Variable for the object we will save
     const newReview = {
@@ -68,9 +70,11 @@ app.post('/api/reviews', (req, res) => {
     console.log(response);
 
     // TODO: Add a comment explaining the functionality of res.json()
+    // this will add the information as json if the response is successful (201)
     res.status(201).json(response);
   } else {
     // TODO: Add a comment describing the purpose of the else statement in this POST request.
+    // this statement won't post a review if the review criteria is not met, throwing an error
     res.status(500).json('Error in posting review');
   }
 });
